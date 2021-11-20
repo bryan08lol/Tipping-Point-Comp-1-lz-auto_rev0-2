@@ -264,7 +264,7 @@ void AWP2(){
       {20_in, 0_ft, 0_deg}},
       "G"
     );
-    driveauton->moveDistance(-25_in);
+    driveauton->moveDistance(-28_in);
     Clamp.move_relative(1300, 100);
     delay(1000);
     driveauton->moveDistance(20_in);
