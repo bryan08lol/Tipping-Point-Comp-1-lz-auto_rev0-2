@@ -251,7 +251,7 @@ void AWP2(){
       2.0, // Maximum linear acceleration of the Chassis in m/s/s
       10.0 // Maximum linear jerk of the Chassis in m/s/s/s
     })
-    
+
     .withOutput(driveauton)
     .buildMotionProfileController();
     profileController2->generatePath({
@@ -397,7 +397,8 @@ delay(300);
 driveauton->moveDistance(40_in);
 driveauton->turnAngle(-35_deg);
 Clamp.move_relative(-1000, 200);
-driveauton->turnAngle(70_deg);
+driveauton->turnAngle(65_deg);
+//could possibly also be 75 degrees
 driveauton->moveDistance(-50_in);
 Clamp.move_relative(1300,200);
 delay(300);
