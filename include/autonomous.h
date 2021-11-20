@@ -264,10 +264,10 @@ void AWP2(){
       {20_in, 0_ft, 0_deg}},
       "G"
     );
-    profileController2->setTarget("owo");
+    driveauton->moveDistance(-25_in);
     Clamp.move_relative(1300, 100);
     delay(1000);
-    profileController2->setTarget("G", true);
+    driveauton->moveDistance(20_in);
     delay(300);
     Clamp.move_relative(-1300,100);
     delay(200);
@@ -322,11 +322,11 @@ void TEST_GO_1() {
       {60_in, 0_in, 0_deg}},
       "retreat"
   );
-profileController->setTarget("first_move");
+driveauton->moveDistance(-64_in);
 delay(100);
 Clamp.move_relative(1500, 200);
 delay(500);
-profileController->setTarget("retreat", true);
+driveauton->moveDistance(60_in);
 Clamp.move_relative(-1500, 200);
 delay(500);
 }
@@ -390,21 +390,18 @@ void TEST_GO_2() {
 
 //profileController->setTarget("first_move",true);
 //GHold.move_relative(7500, 10);
-profileController->setTarget("first_move");
-//driveauton->moveDistance(-52_in);
+
+driveauton->moveDistance(-52_in);
 Clamp.move_relative(1300, 200);
 delay(300);
-profileController->setTarget("2ndnumogo", true);
-//driveauton->moveDistance(40_in);
+driveauton->moveDistance(40_in);
 driveauton->turnAngle(-35_deg);
 Clamp.move_relative(-1000, 200);
 driveauton->turnAngle(70_deg);
-profileController->setTarget("backout");
-//driveauton->moveDistance(-50_in);
+driveauton->moveDistance(-50_in);
 Clamp.move_relative(1300,200);
 delay(300);
-profileController->setTarget("idk", true);
-//driveauton->moveDistance(45_in);
+driveauton->moveDistance(45_in);
 Clamp.move_relative(-1500, 200);
 }
 
