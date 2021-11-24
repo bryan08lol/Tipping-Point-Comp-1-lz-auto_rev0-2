@@ -209,12 +209,11 @@ void AWP1(){
       })
       .withOutput(driveauton)
       .buildMotionProfileController();
-
-    Clamp.move_relative(1000, 200);
+driveauton->moveDistance(7_in);
+    GHold.move_relative(1000, 200);
     delay(100);
-    driverControl(-100, -100);
      delay(1000);
-    Clamp.move_relative(-1000, 100);
+    GHold.move_relative(-1000, 100);
 }
 void AWP2(){
 
@@ -254,24 +253,12 @@ void AWP2(){
 
     .withOutput(driveauton)
     .buildMotionProfileController();
-    profileController2->generatePath({
-      {0_ft, 0_ft, 0_deg},
-      {25_in, 0_ft, 0_deg}},
-      "owo"
-    );
-    profileController2->generatePath({
-      {0_ft, 0_ft, 0_deg},
-      {20_in, 0_ft, 0_deg}},
-      "G"
-    );
-    driveauton->moveDistance(-25_in);
+
+    driveauton->moveDistance(-28_in);
     Clamp.move_relative(1300, 100);
-    delay(1000);
     driveauton->moveDistance(20_in);
     delay(300);
     Clamp.move_relative(-1300,100);
-    delay(200);
-    driveauton->turnAngle(180_deg);
 
 
 }
@@ -397,7 +384,7 @@ delay(300);
 driveauton->moveDistance(40_in);
 driveauton->turnAngle(-35_deg);
 Clamp.move_relative(-1000, 200);
-driveauton->turnAngle(65_deg);
+driveauton->turnAngle(72_deg);
 //could possibly also be 75 degrees
 driveauton->moveDistance(-50_in);
 Clamp.move_relative(1300,200);

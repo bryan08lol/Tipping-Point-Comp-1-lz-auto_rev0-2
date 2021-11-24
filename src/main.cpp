@@ -12,6 +12,10 @@ void centerBtn(){
 void rightBtn(){
 
 }
+
+pros::ADIDigitalOut piston ('A');
+
+
 void initialize() {
 	pros::lcd::initialize();
 
@@ -23,7 +27,7 @@ void initialize() {
 	FBarR.set_brake_mode(MOTOR_BRAKE_HOLD);
 	GHold.set_brake_mode(MOTOR_BRAKE_HOLD);
   autonSelector();
-
+	piston.set_value(true);
 	//autonSelector();
 }
 
@@ -85,6 +89,8 @@ void my_task_fn(void* param) {
 }
 
 
+
+
 void opcontrol() {
 	master.clear();
 	control.clear();
@@ -100,6 +106,12 @@ void opcontrol() {
 		double power = -control.get_analog(ANALOG_LEFT_Y);
 		double turn = -control.get_analog(ANALOG_LEFT_X);
 		driverControl(2*power+turn, 2*power - turn);
+		if (control.get_digital(E_CONTROLLER_DIGITAL_UP)){
+			piston.set_value(true);
+		}
+		if (control.get_digital(E_CONTROLLER_DIGITAL_DOWN)){
+			piston.set_value(false);
+		}
 		if (control.get_digital(E_CONTROLLER_DIGITAL_X)){
 			Clamp.move(-100);
 		}
