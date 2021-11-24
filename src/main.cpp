@@ -28,6 +28,7 @@ void initialize() {
 	GHold.set_brake_mode(MOTOR_BRAKE_HOLD);
   autonSelector();
 	piston.set_value(true);
+	//set to false if default position is the same
 	//autonSelector();
 }
 
