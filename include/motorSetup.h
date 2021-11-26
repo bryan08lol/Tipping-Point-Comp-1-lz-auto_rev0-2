@@ -28,6 +28,8 @@ pros::Controller control (pros::E_CONTROLLER_MASTER);
 
 ControllerButton RUp(ControllerDigital::R1);
 ControllerButton RDown(ControllerDigital::R2);
+ControllerButton LUp(ControllerDigital::L1);
+ControllerButton LDown(ControllerDigital::L2);
 ControllerButton A(ControllerDigital::A);
 ControllerButton B(ControllerDigital::B);
 ControllerButton X(ControllerDigital::X);
