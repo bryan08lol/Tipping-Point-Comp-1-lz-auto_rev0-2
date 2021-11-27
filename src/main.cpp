@@ -13,22 +13,20 @@ void rightBtn(){
 
 }
 
-pros::ADIDigitalOut piston ('A');
-
-
 void initialize() {
 	pros::lcd::initialize();
 
 	pros::lcd::register_btn0_cb(leftBtn);
 	pros::lcd::register_btn1_cb(centerBtn);
 	pros::lcd::register_btn2_cb(rightBtn);
-	Clamp.set_brake_mode(MOTOR_BRAKE_HOLD);
 	FBarL.set_brake_mode(MOTOR_BRAKE_HOLD);
 	FBarR.set_brake_mode(MOTOR_BRAKE_HOLD);
-	GHold.set_brake_mode(MOTOR_BRAKE_HOLD);
-  autonSelector();
+	BRLift.set_brake_mode(MOTOR_BRAKE_HOLD);
+	BLLift.set_brake_mode(MOTOR_BRAKE_HOLD);
 	piston.set_value(true);
 	//set to false if default position is the same
+
+  autonSelector();
 	//autonSelector();
 }
 

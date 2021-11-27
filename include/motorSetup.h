@@ -14,14 +14,14 @@ extern pros::Motor BackRight;
 
 
 //Ports
-const int FLPort = 3;
-const int FRPort = 19;
-const int BLPort = 11;
-const int BRPort = 5;
-const int GHPort = 13;
-const int FBRPort = 8;
-const int FBLPort = 16;
-const int CPort = 12;
+const int FLPort = 13;
+const int FRPort = 14;
+const int BLPort = 15;
+const int BRPort = 16;
+const int FBLPort = 3;
+const int FBRPort = 4;
+const int BRLPort = 5;
+const int BLLPort = 6;
 
 
 pros::Controller control (pros::E_CONTROLLER_MASTER);
@@ -40,16 +40,16 @@ ControllerButton up(ControllerDigital::up);
 ControllerButton down(ControllerDigital::down);
 /*
 pros::Controller control (E_CONTROLLER_MASTER);*/
-pros::Motor Clamp(CPort, E_MOTOR_GEARSET_36, false);
 
 pros::Motor FrontLeft(FLPort, true);
-pros::Motor FrontRight(FRPort, false);
 pros::Motor BackLeft(BLPort, true);
+pros::Motor FrontRight(FRPort, false);
 pros::Motor BackRight(BRPort, false);
 pros::Motor FBarR(FBRPort, false);
 pros::Motor FBarL(FBLPort, true);
-pros::Motor GHold(GHPort, true);
-
+pros::Motor BLLift(BLLPort, true);
+pros::Motor BRLift(BRLPort, false);
+pros::ADIDigitalOut piston ('A');
 /*
 pros::Motor LeftIntake(LIPort, false);
 pros::Motor RightIntake(RIPort, true);
