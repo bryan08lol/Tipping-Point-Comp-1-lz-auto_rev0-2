@@ -41,14 +41,17 @@ void driverControl(double l, double r){
 	BackRight.move_velocity(r);
 }
 
+void bliftmove(double speed){
+  BLLift.move_velocity(speed);
+  BRLift.move_velocity(speed);
+}
+
+
 void fourbarmove(double speed){
   FBarR.move_velocity(speed);
   FBarL.move_velocity(speed);
 }
 
-void goalholdermove(double speed){
-  GHold.move_velocity(speed);
-}
 /*
 //For debugging things
 void printOnScreen(){

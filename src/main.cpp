@@ -15,7 +15,6 @@ void rightBtn(){
 
 void initialize() {
 	pros::lcd::initialize();
-
 	pros::lcd::register_btn0_cb(leftBtn);
 	pros::lcd::register_btn1_cb(centerBtn);
 	pros::lcd::register_btn2_cb(rightBtn);
@@ -93,10 +92,11 @@ void my_task_fn(void* param) {
 void opcontrol() {
 	master.clear();
 	control.clear();
-	Clamp.set_brake_mode(MOTOR_BRAKE_HOLD);
+	BRLift.set_brake_mode(MOTOR_BRAKE_HOLD);
+	BLLift.set_brake_mode(MOTOR_BRAKE_HOLD);
 	FBarL.set_brake_mode(MOTOR_BRAKE_HOLD);
 	FBarR.set_brake_mode(MOTOR_BRAKE_HOLD);
-	GHold.set_brake_mode(MOTOR_BRAKE_HOLD);
+  //piston.set_value(true);
   int goalHeight = 0;
 	double prevr = 0;
 	double prevl = 0;
@@ -105,33 +105,14 @@ void opcontrol() {
 		double power = -control.get_analog(ANALOG_LEFT_Y);
 		double turn = -control.get_analog(ANALOG_LEFT_X);
 		driverControl(2*power+turn, 2*power - turn);
-		if (control.get_digital(E_CONTROLLER_DIGITAL_UP)){
-			piston.set_value(true);
-		}
-		if (control.get_digital(E_CONTROLLER_DIGITAL_DOWN)){
+		if (control.get_digital(E_CONTROLLER_DIGITAL_X)){
 			piston.set_value(false);
 		}
-		if (control.get_digital(E_CONTROLLER_DIGITAL_X)){
-			Clamp.move(-100);
+		if (control.get_digital(E_CONTROLLER_DIGITAL_B)){
+			piston.set_value(true);
 		}
-		else if (control.get_digital(E_CONTROLLER_DIGITAL_B)){
-			Clamp.move(100);
-		}
-		else if (control.get_digital(E_CONTROLLER_DIGITAL_Y)){
-			// Clamp.move_absolute(0,-100);
-		}
-		else{
-			Clamp.move_velocity(0);
-		}
-		if (control.get_digital(E_CONTROLLER_DIGITAL_R2)){
-			GHold.move(100);
-		}
-		else if (control.get_digital(E_CONTROLLER_DIGITAL_R1)){
-			GHold.move(-100);
-		}
-		else{
-			GHold.move_velocity(0);
-		}
+
+		
     if (RUp.changedToPressed() && goalHeight < NUM_HEIGHTS - 1) {
       goalHeight++;
       liftControl->setTarget(heights[goalHeight]);
