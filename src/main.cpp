@@ -121,10 +121,10 @@ void opcontrol() {
       goalHeight--;
       liftControl->setTarget(heights[goalHeight]);
     }
-		if (control.get_digital(E_CONTROLLER_DIGITAL_L1)) {
+		if (control.get_digital(E_CONTROLLER_DIGITAL_R1)) {
       fourbarmove(120);
 
-    } else if (control.get_digital(E_CONTROLLER_DIGITAL_L2)) {
+    } else if (control.get_digital(E_CONTROLLER_DIGITAL_R2)) {
       fourbarmove(-120);
     } else {
 			fourbarmove(0);
@@ -132,12 +132,20 @@ void opcontrol() {
     pros::delay(20);
   }
 
-	if(LUp.changedToPressed() && bGoalHeight < NUM_HEIGHTS-1){
-		bGoalHeight++;
-		liftControl->setTar
-	}
+		if(LUp.changedToPressed() && bGoalHeight < NUM_HEIGHTS-1){
+			bGoalHeight++;
+			liftControl->setTarget(heights[bGoalHeight]);
+		} else if (LDown.changedToPressed() && bGoalHeight > 0){
+			bGoalHeight--;
+			liftControl->setTarget(heights[bGoalHeight])
+		}
+		if (control.get_digital(E_CONTROLLER_DIGITAL_L1)){
+			bliftmove(120);
 
-	if (control.get_digital(E_CONTROLLER_DIGITAL_A)){
+		} else if (control.get_digital(E_CONTROLLER_DIGITAL_L2)) {
+			bliftmove(-120);
 
-	}
-}
+		} else {
+			bliftmove(0);
+		}
+		pros::delay(20);
