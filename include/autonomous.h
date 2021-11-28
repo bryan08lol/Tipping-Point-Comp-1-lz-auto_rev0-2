@@ -3,7 +3,7 @@
 
 
 std::shared_ptr<AsyncPositionController<double, double>> liftControl =
-    AsyncPosControllerBuilder().withMotor(GHPort).build();
+    AsyncPosControllerBuilder().withMotor({BRLift,-BLLift}).build();
 std::shared_ptr<AsyncPositionController<double, double>> fourbar =
     AsyncPosControllerBuilder().withMotor({FBRPort,-FBLPort}).build();
 

@@ -98,6 +98,7 @@ void opcontrol() {
 	FBarR.set_brake_mode(MOTOR_BRAKE_HOLD);
   //piston.set_value(true);
   int goalHeight = 0;
+	int bGoalHeight = 0;
 	double prevr = 0;
 	double prevl = 0;
   while (true){
@@ -130,6 +131,13 @@ void opcontrol() {
 		}
     pros::delay(20);
   }
-}
 
-		if (L)
+	if(LUp.changedToPressed() && bGoalHeight < NUM_HEIGHTS-1){
+		bGoalHeight++;
+		liftControl->setTar
+	}
+
+	if (control.get_digital(E_CONTROLLER_DIGITAL_A)){
+
+	}
+}
