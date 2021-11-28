@@ -80,7 +80,7 @@ const int heights2[NUM_HEIGHTS] = {0, 700,1800};
 int x = 0;
 
 void my_task_fn(void* param) {
-	std::string t =std::to_string( (FrontLeft.get_temperature()+FrontRight.get_temperature()+ BackLeft.get_temperature()+ BackRight.get_temperature()+Clamp.get_temperature()+FBarR.get_temperature()+ FBarL.get_temperature()+ GHold.get_temperature())/8);
+	std::string t =std::to_string( (FrontLeft.get_temperature()+FrontRight.get_temperature()+ BackLeft.get_temperature()+ BackRight.get_temperature()+FBarR.get_temperature()+ FBarL.get_temperature()+ BRLift.get_temperature()+ BLLift.get_temperature())/8);
 	control.print(1, 1, t.c_str());
 		delay(200);
 		// ...
@@ -112,7 +112,7 @@ void opcontrol() {
 			piston.set_value(true);
 		}
 
-		
+
     if (RUp.changedToPressed() && goalHeight < NUM_HEIGHTS - 1) {
       goalHeight++;
       liftControl->setTarget(heights[goalHeight]);
@@ -131,3 +131,5 @@ void opcontrol() {
     pros::delay(20);
   }
 }
+
+		if (L)
