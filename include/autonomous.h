@@ -101,7 +101,7 @@ void skills(){
 
   profileController->setTarget("first_move",true);
   delay(1500);
-  bliftmove.move_relative(1000, 200);
+  bliftmove(100);
   delay(500);
   profileController->setTarget("retreat",true);
   delay(1000);
@@ -158,7 +158,7 @@ profileController->generatePath({
 //driveauton->moveDistance(40_in);
 profileController->setTarget("Gotonumogo");
 delay(1600);
-bliftmove.move_relative(5000, 100);
+bliftmove(100);
 delay(100);
 profileController->generatePath({
       {0_ft, 0_ft, 0_deg},
@@ -167,7 +167,7 @@ profileController->generatePath({
     );
 profileController->setTarget("Gotoamogo",true);
 delay(800);
-bliftmove.move_absolute(0, -100);
+bliftmove(100);
 delay(100);
 delay(15000);
 }
@@ -210,10 +210,10 @@ void AWP1(){
       .withOutput(driveauton)
       .buildMotionProfileController();
 driveauton->moveDistance(7_in);
-    GHold.move_relative(1000, 200);
+    bliftmove(100);
     delay(100);
      delay(1000);
-    GHold.move_relative(-1000, 100);
+    bliftmove(100);
 }
 void AWP2(){
 
@@ -255,10 +255,10 @@ void AWP2(){
     .buildMotionProfileController();
 
     driveauton->moveDistance(-28_in);
-    bliftmove.move_relative(1300, 100);
+    bliftmove(100);
     driveauton->moveDistance(20_in);
     delay(300);
-    bliftmove.move_relative(-1300,100);
+    bliftmove(100);
 
 
 }
@@ -311,10 +311,10 @@ void TEST_GO_1() {
   );
 driveauton->moveDistance(-64_in);
 delay(100);
-bliftmove.move_relative(1500, 200);
+bliftmove(100);
 delay(500);
 driveauton->moveDistance(60_in);
-bliftmove.move_relative(-1500, 200);
+bliftmove(100);
 delay(500);
 }
 
@@ -376,21 +376,21 @@ void TEST_GO_2() {
   );
 
 //profileController->setTarget("first_move",true);
-//GHold.move_relative(7500, 10);
+//bliftmove.move_relative(7500, 10);
 
 driveauton->moveDistance(-52_in);
 bliftmove(1300, 200);
 delay(300);
 driveauton->moveDistance(40_in);
 driveauton->turnAngle(-35_deg);
-bliftmove.move_relative(-1000, 200);
+bliftmove(100);
 driveauton->turnAngle(72_deg);
 //could possibly also be 75 degrees
 driveauton->moveDistance(-50_in);
-bliftmove.move_relative(1300,200);
+bliftmove(100);
 delay(300);
 driveauton->moveDistance(45_in);
-bliftmove.move_relative(-1500, 200);
+bliftmove(100);
 }
 
 void TEST_GO_3() {
@@ -441,15 +441,15 @@ void TEST_GO_3() {
   );
 
   driveauton->moveDistance(-52_in);
-  forubarmove.move_absolute(1300, 100);
+  bliftmove(100);
   delay(300);
   driveauton->moveDistance(38_in);
   driveauton->turnAngle(-35_deg);
-  bliftmove.move_relative(-1000, 200);
+  bliftmove(100);
   driveauton->turnAngle(75_deg);
   driveauton->moveDistance(-47_in);
-  bliftmove.move_relative(1300,200);
+  bliftmove(100);
   delay(300);
   driveauton->moveDistance(40_in);
-  bliftmove.move_relative(-1500, 200);
+  bliftmove(100);
 }
