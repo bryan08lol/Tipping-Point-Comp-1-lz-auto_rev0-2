@@ -137,7 +137,7 @@ void opcontrol() {
 			liftControl->setTarget(heights[bGoalHeight]);
 		} else if (LDown.changedToPressed() && bGoalHeight > 0){
 			bGoalHeight--;
-			liftControl->setTarget(heights[bGoalHeight])
+			liftControl->setTarget(heights[bGoalHeight]);
 		}
 		if (control.get_digital(E_CONTROLLER_DIGITAL_L1)){
 			bliftmove(120);
@@ -149,3 +149,4 @@ void opcontrol() {
 			bliftmove(0);
 		}
 		pros::delay(20);
+}
