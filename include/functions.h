@@ -42,10 +42,14 @@ void driverControl(double l, double r){
 }
 
 void bliftmove(double speed){
-  BLLift.move_velocity(speed);
-  BRLift.move_velocity(speed);
+  BLLift.move(speed);
+  BRLift.move(speed);
 }
 
+void bliftmoverelative(double distance, double speed){
+  BLLift.move_relative(distance,speed);
+  BRLift.move_relative(distance,speed);
+}
 
 void fourbarmove(double speed){
   FBarR.move_velocity(speed);
