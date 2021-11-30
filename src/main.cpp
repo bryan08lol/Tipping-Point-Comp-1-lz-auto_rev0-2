@@ -140,10 +140,10 @@ void opcontrol() {
 			liftControl->setTarget(heights[bGoalHeight]);
 		}
 		if (control.get_digital(E_CONTROLLER_DIGITAL_L1)){
-			bliftmove(120);
+			bliftmove(135);
 
 		} else if (control.get_digital(E_CONTROLLER_DIGITAL_L2)) {
-			bliftmove(-120);
+			bliftmove(-135);
 
 		} else {
 			bliftmove(0);
