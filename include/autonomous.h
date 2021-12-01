@@ -377,9 +377,9 @@ void TEST_GO_2() {
 
 //profileController->setTarget("first_move",true);
 //bliftmove.move_relative(7500, 10);
-  
+
   driveauton->moveDistance(-52_in);
-  bliftmove(1300, 200);
+  bliftmove(100);
   delay(300);
   driveauton->moveDistance(40_in);
   driveauton->turnAngle(-35_deg);

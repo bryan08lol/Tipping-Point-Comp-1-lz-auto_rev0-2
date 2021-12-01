@@ -46,15 +46,26 @@ void bliftmove(double speed){
   BRLift.move(speed);
 }
 
-void bliftmoverelative(double distance, double speed){
-  BLLift.move_relative(distance,speed);
-  BRLift.move_relative(distance,speed);
+void bliftmoverelative(double encoderTicks, double speed){
+  BLLift.move_relative(encoderTicks,speed);
+  BRLift.move_relative(encoderTicks,speed);
 }
 
 void fourbarmove(double speed){
   FBarR.move_velocity(speed);
   FBarL.move_velocity(speed);
 }
+
+void fourbarmoverelative(double encoderTicks, double speed){
+  FBarR.move_relative(encoderTicks, speed);
+  FBarL.move_relative(encoderTicks, speed);
+}
+
+void fourbarmoveabsolute(double position, double speed){
+  FBarR.move_absolute(position, speed);
+  FBarL.move_absolute(position, speed);
+}
+
 
 /*
 //For debugging things
